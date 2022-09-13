@@ -19,6 +19,8 @@ namespace MagicVilla_VillaAPI.Controllers
         [HttpGet("{id:int}", Name="GetVilla")]
         public ActionResult<VillaDTO> GetVilla(int id)
         {
+            //Todo, return a custom model state validation error, video 24
+
             if (id == 0)
                 return BadRequest();
 
@@ -50,6 +52,16 @@ namespace MagicVilla_VillaAPI.Controllers
 
             return CreatedAtRoute("GetVilla", new { id = villaDTO.Id }, villaDTO);
 
+        }
+
+        [HttpDelete("{id:int}", Name = "DeleteVilla")]
+        public IActionResult DeleteVilla(int id)
+        {
+            if(id == 0) return BadRequest();
+            var villa = VillaStore.villaList .FirstOrDefault(u => u.Id == id);
+            if(villa == null) return NotFound();
+            VillaStore.villaList.Remove(villa);
+            return NoContent();
         }
     }
 }
