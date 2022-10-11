@@ -3,5 +3,5 @@ Magic Villa is an ASP.NET 6 Web AP with a .NET MVC frontend that let's users man
 
 
 
-#Data Layer
+# Data Layer
 Entity Framework with SQL Server
