@@ -74,7 +74,7 @@ namespace MagicVilla_VillaAPI.Data
                   Amenity = "",
                   CreatedDate = DateTime.Now
               });
-        }
+        } 
 
     }
 }
